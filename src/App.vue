@@ -1,11 +1,22 @@
 <template>
   <nav>
-    
-    <router-link button="" to="/" custom v-slot="{navigate}"><button id="button" @click="navigate" role="link">Glowna</button></router-link> |
-    <router-link to="/about" custom v-slot="{navigate}"><button @click="navigate" role="link">Opis</button></router-link>
+  <h1>Aby sprawdzić dzisiejszą pogodę wciśnij przycisk: Pogoda</h1>
+  <h1>Dzisiejsza data: {{ Data }}</h1>
+  <router-link to="/SprawdzPogode" custom v-slot="{navigate}"><button @click="navigate" role="link">Pogoda</button></router-link>
   </nav>
   <router-view/>
 </template>
+
+<script>
+export default {
+data() {
+  return{
+    Data: new Date().toLocaleDateString(),
+  }
+}
+}
+
+</script>
 
 
 
@@ -20,6 +31,7 @@
     box-sizing: border-box;;
 }
 body{
+    color: white;
     background: linear-gradient(159deg, rgba(2,0,36,1) 0%, rgba(24,24,42,1) 33%, rgba(4,41,48,1) 100%);
     min-height: 100vh;;
     font-family: "Poppins";
@@ -47,6 +59,8 @@ button:hover{
 }
 
 nav {
+  font-family: "Arial";
+  color: rgb(187, 187, 187);
   padding: 30px;
 }
 
